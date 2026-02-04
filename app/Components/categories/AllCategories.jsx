@@ -35,14 +35,9 @@ const AllCategories = () => {
 
   const router = useRouter();
 
-  const handleCategory = (category) => {
-    router.push(`/listofcategories/${category.storeName}`, {
-      // state: {
-      //   storeName: category.storeName,
-      //   stores: category.stores,
-      // },
-    });
-  };
+const handleCategory = (category) => {
+  router.push(`/listofcategories/${category.storeName}`);
+};
 
   return (
     <section className="py-4 sm:py-8 lg:py-16 px-4 sm:px-6 lg:px-8 min-w-4xl">
