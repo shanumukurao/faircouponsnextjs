@@ -187,19 +187,22 @@ const CategoriesStores = () => {
   };
 
   const handlePopup = (coupon) => {
-    if (coupon.type === "code") {
-      setSelectedCoupon(coupon);
-      setPopup(true);
-    } else {
-      if (
-        window.confirm(
-          `Do you want to visit ${storeName} to activate this deal?`,
-        )
-      ) {
+  if (coupon.type === "code") {
+    setSelectedCoupon(coupon);
+    setPopup(true);
+  } else {
+    if (typeof window !== "undefined") {
+      const confirmVisit = window.confirm(
+        `Do you want to visit ${storeName} to activate this deal?`
+      );
+
+      if (confirmVisit) {
         window.open(coupon.link, "_blank");
       }
     }
-  };
+  }
+};
+
 
   const copyToClipboard = async (text) => {
     try {
@@ -220,15 +223,19 @@ const CategoriesStores = () => {
     }
   };
 
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.key === "Escape") {
-        setPopup(false);
-      }
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
+ useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const handleEsc = (event) => {
+    if (event.key === "Escape") {
+      setPopup(false);
+    }
+  };
+
+  window.addEventListener("keydown", handleEsc);
+  return () => window.removeEventListener("keydown", handleEsc);
+}, []);
+
 
   useEffect(() => {
     if (popup) {
@@ -242,42 +249,55 @@ const CategoriesStores = () => {
   }, [popup]);
 
 
-  const handleShare = (platform) => {
-    const shareUrl = window.location.href;
-    const shareText = `Check out these amazing ${storeName} coupon codes!`;
+const handleShare = (platform) => {
+  if (typeof window === "undefined") return;
 
-    switch (platform) {
-      case "facebook":
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
-          "_blank",
-        );
-        break;
-      case "twitter":
-        window.open(
-          `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
-          "_blank",
-        );
-        break;
-      case "whatsapp":
-        window.open(
-          `https://wa.me/?text=${encodeURIComponent(`${shareText} ${shareUrl}`)}`,
-          "_blank",
-        );
-        break;
-      default:
-        if (navigator.share) {
-          navigator.share({
-            title: `${storeName} Coupons`,
-            text: shareText,
-            url: shareUrl,
-          });
-        } else {
-          copyToClipboard(shareUrl);
-          alert("Link copied to clipboard!");
-        }
-    }
-  };
+  const shareUrl = window.location.href;
+  const shareText = `Check out these amazing ${storeName} coupon codes!`;
+
+  switch (platform) {
+    case "facebook":
+      window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          shareUrl
+        )}`,
+        "_blank"
+      );
+      break;
+
+    case "twitter":
+      window.open(
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          shareText
+        )}&url=${encodeURIComponent(shareUrl)}`,
+        "_blank"
+      );
+      break;
+
+    case "whatsapp":
+      window.open(
+        `https://wa.me/?text=${encodeURIComponent(
+          `${shareText} ${shareUrl}`
+        )}`,
+        "_blank"
+      );
+      break;
+
+    default:
+      if (navigator?.share) {
+        navigator.share({
+          title: `${storeName} Coupons`,
+          text: shareText,
+          url: shareUrl,
+        });
+      } else {
+        copyToClipboard(shareUrl);
+        // replace alert with toast if possible
+        alert("Link copied to clipboard!");
+      }
+  }
+};
+
 
   return (
     <div className="py-4 px-28 bg-gradient-to-br from-blue-50 to-indigo-100">
