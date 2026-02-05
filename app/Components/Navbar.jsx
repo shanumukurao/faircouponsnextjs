@@ -434,7 +434,7 @@ const handleTopStoresClick = () => {
 
               {/* Categories */}
               <button
-                onClick={() => router.push('/categories')}
+                onClick={() => router.push('/allcategories')}
                 className="flex items-center gap-1.5 lg:gap-2 py-1.5 sm:py-2 transition-all hover:text-blue-600 text-xs lg:text-sm xl:text-base"
               >
                 <i className="fas fa-th-large text-xs lg:text-sm"></i>

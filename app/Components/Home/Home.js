@@ -435,7 +435,6 @@ const collection = [
 
 
 
-
   return (
     <>
       <Helmet>
@@ -462,7 +461,8 @@ const collection = [
         }} 
       >
         <main>
-          {/* Hero Section */}
+
+ {/* Hero Section */}
           <section className="relative bg-gradient-to-r from-sky-600 via-purple-600 to-fuchsia-500 py-20 overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute inset-0">
@@ -673,6 +673,170 @@ const collection = [
               </div>
             </div>
           </section>
+
+<section className="relative overflow-hidden bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 py-16 px-4 sm:px-6 lg:px-8 shadow-2xl my-8">
+  {/* Decorative Elements */}
+  <div className="absolute top-0 left-0 w-32 h-32 bg-red-200 rounded-full opacity-20 -translate-x-16 -translate-y-16"></div>
+  <div className="absolute bottom-0 right-0 w-40 h-40 bg-yellow-200 rounded-full opacity-20 translate-x-16 translate-y-16"></div>
+  <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-orange-200 rounded-full opacity-15"></div>
+  
+  {/* Confetti Animation */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {[...Array(20)].map((_, i) => (
+      <div 
+        key={i}
+        className="absolute w-2 h-4 opacity-30"
+        style={{
+          backgroundColor: ['#EF4444', '#F97316', '#EAB308', '#DC2626'][i % 4],
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          transform: `rotate(${Math.random() * 360}deg)`,
+        }}
+      ></div>
+    ))}
+  </div>
+
+  <div className="relative max-w-4xl mx-auto">
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      {/* Left Content */}
+      <div className="text-center lg:text-left space-y-6 lg:space-y-8">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-full font-semibold text-sm">
+          <span className="animate-pulse">✨</span>
+          Limited Time Offer
+          <span className="animate-pulse">✨</span>
+        </div>
+
+        {/* Main Heading */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+          New Year
+          <span className="block bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
+            Mega Sale!
+          </span>
+        </h1>
+
+        {/* Discount Badge */}
+        <div className="inline-block relative">
+          <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-4xl sm:text-5xl lg:text-6xl font-black px-6 py-3 sm:px-8 sm:py-4 rounded-2xl transform -rotate-3 shadow-lg">
+            60% OFF
+          </div>
+          <div className="absolute -top-2 -right-2 bg-yellow-400 text-gray-900 font-bold px-3 py-1 rounded-lg text-sm">
+            SAVE BIG
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+          Start the new year with amazing savings! Enjoy incredible discounts on all our products. 
+          This special offer won't last long - grab your favorites before they're gone!
+        </p>
+
+        {/* CTA Button */}
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button className="bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-full text-base sm:text-lg transform hover:scale-105 transition-all duration-300 shadow-xl w-full sm:w-auto">
+              Shop Now →
+            </button>
+            <button className="border-2 border-red-500 text-red-600 hover:bg-red-50 font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 w-full sm:w-auto">
+              View All Deals
+            </button>
+          </div>
+          
+          {/* Countdown Timer */}
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow">
+            <span className="text-gray-600 text-sm">Ends in:</span>
+            <div className="flex gap-1 sm:gap-2">
+              {['01', '23', '45', '12'].map((time, i) => (
+                <div key={i} className="bg-gray-900 text-white px-2 py-1 sm:px-3 sm:py-1 rounded font-mono font-bold text-sm">
+                  {time}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Side - Visual Element */}
+      <div className="relative">
+        <div className="bg-gradient-to-br from-red-400 via-orange-400 to-yellow-400 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-500">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8">
+            {/* Sale Items Grid */}
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {[
+                { label: 'Electronics', discount: '50-70% OFF' },
+                { label: 'Fashion', discount: '40-60% OFF' },
+                { label: 'Home Decor', discount: '55% OFF' },
+                { label: 'Beauty', discount: '45% OFF' },
+              ].map((item, index) => (
+                <div 
+                  key={index} 
+                  className="bg-gradient-to-br from-red-50 to-orange-50 p-3 sm:p-4 rounded-xl text-center hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900">{item.discount}</div>
+                  <div className="text-gray-600 font-medium text-sm sm:text-base">{item.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Stats */}
+            <div className="mt-6 lg:mt-8 flex justify-around border-t border-gray-200 pt-4 lg:pt-6">
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl font-bold text-red-600">5000+</div>
+                <div className="text-gray-600 text-sm">Happy Customers</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl font-bold text-orange-600">200+</div>
+                <div className="text-gray-600 text-sm">Products on Sale</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 bg-yellow-400 text-gray-900 font-bold px-3 py-1 sm:px-4 sm:py-2 rounded-lg shadow-lg transform rotate-12 text-xs sm:text-sm">
+          🔥 HOT DEAL
+        </div>
+        <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-red-500 text-white font-bold px-3 py-1 sm:px-4 sm:py-2 rounded-lg shadow-lg transform -rotate-12 text-xs sm:text-sm">
+          🎁 FREE GIFT
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom Banner */}
+    <div className="mt-8 lg:mt-12 bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 rounded-2xl p-4 lg:p-6 border border-red-200">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 lg:gap-6">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm lg:text-base">✓</span>
+          </div>
+          <div>
+            <div className="font-semibold text-gray-900 text-sm lg:text-base">Free Shipping</div>
+            <div className="text-gray-600 text-xs lg:text-sm">On orders over $50</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm lg:text-base">↺</span>
+          </div>
+          <div>
+            <div className="font-semibold text-gray-900 text-sm lg:text-base">30-Day Returns</div>
+            <div className="text-gray-600 text-xs lg:text-sm">Easy return policy</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm lg:text-base">⭐</span>
+          </div>
+          <div>
+            <div className="font-semibold text-gray-900 text-sm lg:text-base">Best Price</div>
+            <div className="text-gray-600 text-xs lg:text-sm">Price match guarantee</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 {/* collections */}
      <section className="max-w-5xl mx-auto w-full py-16 bg-gray-50">

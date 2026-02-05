@@ -1,6 +1,6 @@
 import React from "react"
-import AllCategories from "../../Components/categories/AllCategories"
+import Categories from "../../Components/categories/Categories"
 
 export default function page(){
-    return <AllCategories/>
+    return <Categories/>
 }
