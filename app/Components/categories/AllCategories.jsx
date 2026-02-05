@@ -88,7 +88,6 @@ const handleCategory = (category) => {
           </div>
         ))}
       </div>
-
       {/* Responsive Spacing for Extra Large Screens */}
       <div className="hidden 2xl:block h-8"></div>
     </section>
