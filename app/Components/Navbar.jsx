@@ -173,12 +173,12 @@ const Navbar = () => {
 
 
 const handleTopStoresClick = () => {
-  // Mobile + Tablet (less than 1024px)
+  if (typeof window === "undefined") return;
+
   if (window.innerWidth < 1024) {
-    router("/stores");
+    router.push("/stores");
     setIsMobileMenuOpen(false);
   } else {
-    // Desktop behavior
     toggleDropdown();
   }
 };
@@ -547,17 +547,16 @@ const handleTopStoresClick = () => {
                 </button>
 
                 {/* Top Stores */}
-                <button
-                  onClick={() => {
-                    toggleDropdown();
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center gap-3 p-2.5 xs:p-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-left"
-                >
-                  <i className="fas fa-store text-blue-500 text-sm xs:text-base w-5"></i>
-                  <span className="font-medium text-sm xs:text-base">Top Stores</span>
-                  <i className="fas fa-chevron-right text-gray-400 ml-auto text-xs xs:text-sm"></i>
-                </button>
+               <button
+  onClick={handleTopStoresClick}
+  className="w-full flex items-center gap-3 p-2.5 xs:p-3 rounded-lg
+             hover:bg-blue-50 hover:text-blue-600 transition-all text-left"
+>
+  <i className="fas fa-store text-blue-500 text-sm xs:text-base w-5"></i>
+  <span className="font-medium text-sm xs:text-base">Top Stores</span>
+  <i className="fas fa-chevron-right text-gray-400 ml-auto text-xs xs:text-sm"></i>
+</button>
+
 
                 {/* Today's Deals */}
                 <Link

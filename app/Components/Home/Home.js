@@ -434,7 +434,6 @@ const collection = [
 ];
 
 
-
   return (
     <>
       <Helmet>
@@ -673,6 +672,8 @@ const collection = [
               </div>
             </div>
           </section>
+
+
 
 <section className="relative overflow-hidden bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 py-16 px-4 sm:px-6 lg:px-8 shadow-2xl my-8">
   {/* Decorative Elements */}
@@ -1572,7 +1573,7 @@ const collection = [
             </div>
 
             {/* Other Stores */}
-            <div className="lg:col-span-2 xl:col-span-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="lg:col-span-2 xl:col-span-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-6 md:gap-4">
                 {[
                     {
                         name: "Flipkart",
@@ -1666,7 +1667,7 @@ const collection = [
         </div>
 
         {/* Offers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-5">
             {[
                 {
                     name: "DELL Technologies",

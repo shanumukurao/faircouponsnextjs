@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import logo from "../../../public/assets/store.png"
+// import logo from "../../../public/assets/store.png"
 import Image from "next/image"
 
 const Stores = () => {
@@ -13,16 +13,16 @@ const Stores = () => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   const data = [
-    { id: "1", name: "Flipkart", logo: logo },
-    { id: "2", name: "Amazon", logo: logo },
-    { id: "3", name: "Myntra", logo: logo },
-    { id: "4", name: "Ajio", logo: logo },
-    { id: "5", name: "Meesho", logo: logo },
-    { id: "6", name: "Snapdeal", logo: logo },
-    { id: "7", name: "Tata Cliq", logo: logo },
-    { id: "8", name: "Nykaa", logo: logo },
-    { id: "9", name: "BigBasket", logo: logo },
-    { id: "10", name: "Swiggy Instamart", logo: logo },
+    { id: "1", name: "Flipkart", logo: "/assets/store.png" },
+    { id: "2", name: "Amazon", logo: "/assets/store.png" },
+    { id: "3", name: "Myntra", logo: "/assets/store.png" },
+    { id: "4", name: "Ajio", logo: "/assets/store.png" },
+    { id: "5", name: "Meesho", logo: "/assets/store.png" },
+    { id: "6", name: "Snapdeal", logo: "/assets/store.png" },
+    { id: "7", name: "Tata Cliq", logo: "/assets/store.png" },
+    { id: "8", name: "Nykaa", logo: "/assets/store.png" },
+    { id: "9", name: "BigBasket", logo: "/assets/store.png" },
+    { id: "10", name: "Swiggy Instamart", logo: "/assets/store.png" },
   ];
 
   const filteredStores = data.filter((store) => {
@@ -41,12 +41,12 @@ const Stores = () => {
     const query = new URLSearchParams({
       name: store.name,
       logo: store.logo,
-      rating: store.rating,
+      rating: store.rating || "4",
       active: store.active,
       paragraph: store.paragraph,
       discount: store.discount,
     }).toString();
-    route.push(`/homestores/?${query.toString()}`);
+    route.push(`/homestores/${encodeURIComponent(store.name)}?${query.toString()}`);
   };
 
   return (
@@ -98,7 +98,11 @@ const Stores = () => {
             className="bg-white rounded-xl p-4 shadow hover:shadow-lg transition cursor-pointer flex flex-col items-center"
           >
             <div className="w-24 h-24 rounded-full mb-3 flex items-center justify-center">
-             <Image src={logo} alt="logo"/>
+              <Image src={store.logo}
+      alt={store.name}
+      width={80}
+      height={80}
+      />
             </div>
             <p className="text-lg font-semibold">{store.name}</p>
               {/* Stats */}

@@ -3,149 +3,142 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Image from "next/image";
-import logo from "../../public/assets/logo.png";
 import Link from "next/link";
+import logo from "../../public/assets/logo.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
 
   const handleSubscribe = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
+      alert("Please enter a valid email address");
       return;
     }
-
     alert(`Thanks for subscribing, ${email}!`);
     setEmail("");
   };
 
   return (
-    <footer className="bg-[#0f1230] text-gray-300 pt-16 pb-12">
-      <div className="container mx-auto px-6 lg:px-12">
+    <footer className="bg-[#0f1230] text-gray-300">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10 py-16">
 
         {/* TOP GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
 
-          {/* Brand + Info */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
+          {/* BRAND */}
+          <div className="space-y-5">
+            <div className="flex items-center gap-3">
               <Image
                 src={logo}
                 alt="FairCoupons Logo"
-                className="w-14 h-14"
+                width={56}
+                height={56}
+                priority
               />
-              <h2 className="text-xl font-semibold text-white">
+              {/* <h2 className="text-xl font-semibold text-white">
                 <span className="text-red-600">Fair</span>
                 <span className="text-yellow-500">Coupons</span>
-              </h2>
+              </h2> */}
             </div>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed text-sm">
               FairCoupons keeps 500k+ promo codes verified across 200k stores.
-              We help marketers launch compliant, conversion-ready campaigns
-              without the guesswork.
+              Helping marketers launch compliant, conversion-ready campaigns.
             </p>
 
-            {/* Stats */}
-            <div className="flex gap-8 mt-6 text-sm">
+            {/* STATS */}
+            <div className="flex gap-8 pt-3">
               {[
-                { value: "30k+", label: "Partners live" },
-                { value: "500k+", label: "Codes verified" },
-                { value: "19%", label: "Average lift" },
+                { value: "30k+", label: "Partners" },
+                { value: "500k+", label: "Codes" },
+                { value: "19%", label: "Avg lift" },
               ].map((stat, i) => (
                 <div key={i}>
                   <p className="text-white font-semibold">{stat.value}</p>
-                  <p className="text-gray-500">{stat.label}</p>
+                  <p className="text-xs text-gray-500">{stat.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Social Icons */}
-            <div className="flex gap-4 mt-6">
+            {/* SOCIAL */}
+            <div className="flex gap-4 pt-2">
               {[
-                { icon: "fab fa-twitter", href: "#" },
-                { icon: "fab fa-facebook", href: "#" },
-                { icon: "fab fa-instagram", href: "#" },
-                { icon: "fab fa-linkedin", href: "#" },
+                { icon: "fab fa-twitter", label: "Twitter" },
+                { icon: "fab fa-facebook", label: "Facebook" },
+                { icon: "fab fa-instagram", label: "Instagram" },
+                { icon: "fab fa-linkedin", label: "LinkedIn" },
               ].map((item, i) => (
                 <a
                   key={i}
-                  href={item.href}
-                  aria-label="social-link"
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition"
+                  href="#"
+                  aria-label={item.label}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition"
                 >
-                  <i className={`${item.icon} text-lg`} />
+                  <i className={`${item.icon} text-white`} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* For Shoppers */}
+          {/* SHOPPERS */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              FOR SHOPPERS
-            </h3>
-            <ul className="space-y-3 text-gray-400">
+            <h3 className="text-white font-semibold mb-4">FOR SHOPPERS</h3>
+            <ul className="space-y-3 text-sm">
               <li><Link href="/" className="hover:text-blue-400">Today's coupons</Link></li>
               <li><Link href="/categories" className="hover:text-blue-400">Categories</Link></li>
-              <li><Link href="/submit-coupon" className="hover:text-blue-400">Submit a coupon</Link></li>
+              <li><Link href="/submit-coupon" className="hover:text-blue-400">Submit coupon</Link></li>
               <li><Link href="/blogs" className="hover:text-blue-400">Blog & insights</Link></li>
             </ul>
           </div>
 
-          {/* For Partners */}
+          {/* PARTNERS */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              FOR PARTNERS
-            </h3>
-            <ul className="space-y-3 text-gray-400">
+            <h3 className="text-white font-semibold mb-4">FOR PARTNERS</h3>
+            <ul className="space-y-3 text-sm">
               <li><Link href="/partners" className="hover:text-blue-400">Partner with us</Link></li>
               <li><Link href="/performance" className="hover:text-blue-400">Performance suite</Link></li>
               <li><Link href="/agency" className="hover:text-blue-400">Agency solutions</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-400">Request a briefing</Link></li>
+              <li><Link href="/contact" className="hover:text-blue-400">Request briefing</Link></li>
             </ul>
           </div>
 
-          {/* Festivals */}
+          {/* FESTIVALS */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">
-              FESTIVALS
-            </h3>
-            <ul className="space-y-3 text-gray-400">
+            <h3 className="text-white font-semibold mb-4">FESTIVALS</h3>
+            <ul className="space-y-3 text-sm">
               <li><Link href="/festivals/holi" className="hover:text-blue-400">Holi</Link></li>
               <li><Link href="/festivals/sankranti" className="hover:text-blue-400">Sankranti</Link></li>
               <li><Link href="/festivals/new-year" className="hover:text-blue-400">New Year</Link></li>
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <span className="bg-white/10 text-white text-xs px-4 py-1 rounded-full mb-3 inline-block">
+          {/* NEWSLETTER */}
+          <div className="space-y-5">
+            <span className="inline-block text-xs bg-white/10 text-white px-4 py-1 rounded-full">
               STAY IN THE LOOP
             </span>
 
-            <h3 className="text-white text-xl font-semibold mb-3 leading-snug">
+            <h3 className="text-white font-semibold text-lg">
               Subscribe our newsletter of existing discounts
             </h3>
 
-            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-              Join thousands of marketers receiving curated coupon drops,
-              campaign insights, and freshness alerts.
+            <p className="text-sm text-gray-400">
+              Get verified coupons, drops & performance insights.
             </p>
 
-            <div className="flex bg-white/10 rounded-xl overflow-hidden border border-white/20">
+            <div className="flex items-center overflow-hidden rounded-xl border border-white/20 bg-white/10">
               <input
+                aria-label="Email address"
                 type="email"
-                placeholder="Work email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-2 w-full bg-transparent text-gray-200 outline-none"
+                placeholder="Work email"
+                className="w-full px-4 py-2 bg-transparent text-gray-200 outline-none"
               />
               <button
                 onClick={handleSubscribe}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-5 transition"
+                className="px-5 py-2 bg-blue-500 hover:bg-blue-600 text-white transition"
               >
                 Subscribe
               </button>
@@ -154,16 +147,16 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM */}
-        <div className="border-t border-white/10 pt-6 text-center">
-          <div className="flex justify-center flex-wrap gap-6 mb-4 text-sm text-gray-400">
-            <Link href="/privacy" className="hover:text-blue-400">Privacy policy</Link>
-            <Link href="/terms" className="hover:text-blue-400">Terms of service</Link>
+        <div className="border-t border-white/10 mt-16 pt-6 text-center">
+          <div className="flex justify-center flex-wrap gap-6 text-sm text-gray-400 mb-3">
+            <Link href="/privacy" className="hover:text-blue-400">Privacy</Link>
+            <Link href="/terms" className="hover:text-blue-400">Terms</Link>
             <Link href="/accessibility" className="hover:text-blue-400">Accessibility</Link>
             <Link href="/sitemap" className="hover:text-blue-400">Sitemap</Link>
           </div>
 
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} FairCoupons. Built for marketers who expect better conversions.
+          <p className="text-xs text-gray-500">
+            © {new Date().getFullYear()} FairCoupons. Built for better conversions.
           </p>
         </div>
 

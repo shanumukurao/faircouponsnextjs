@@ -1,130 +1,98 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import styles from "@/scss/pages/blogDetails.module.scss";
+import Link from "next/link";
 
-const BlogPages = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+const IMG_URL = process.env.NEXT_PUBLIC_IMG_URL || "";
 
-  const { title, date, readTime, image, excerpt, category, author } =
-    location.state || {};
+export default function BlogPages({ blog, blogs }) {
+  if (!blog) return <p>Blog not found.</p>;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="mb-6 px-5 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
-      >
-        ← Back
-      </button>
+    <div className={`container ${styles.blog_details_sec}`}>
+      <div className="row">
+        <div className="col-lg-8">
+          <div className={styles.blog_details}>
+            <img
+              src={`${IMG_URL}${blog.blogImage}`}
+              alt="Blog cover"
+              className={styles.blog_detail_img}
+              height={0}
+              width={0}
+              sizes="100vw"
+            />
+            <h1 className={styles.blog_details_title}>{blog.title.en}</h1>
+            <ul className="d-flex flex-row gap-md-5">
+              <li>By {blog.author}</li>
+              {/* You can include views/comments if available in future */}
+            </ul>
+            <p>{blog.description}</p>
 
-      {/* Image */}
-      <img
-        src={image}
-        className="w-full h-96 object-cover rounded-xl shadow-md"
-        alt=""
-      />
-
-      {/* Title */}
-      <h1 className="text-4xl font-bold mt-6 text-gray-900">{title}</h1>
-
-      {/* Meta Info */}
-      <div className="flex flex-wrap gap-4 text-gray-600 mt-3 text-sm">
-        <span>📅 {date}</span>
-        <span>⏱️ {readTime}</span>
-        <span>🏷️ {category}</span>
-        <span>✍🏼 {author}</span>
-      </div>
-
-      {/* Body Content */}
-      <div className="mt-8 text-lg leading-relaxed text-gray-700">
-        {excerpt}
-      </div>
-
-      {/* Tags */}
-      <div className="mt-8">
-        <h3 className="text-xl font-semibold text-gray-800 mb-3">Tags</h3>
-        <div className="flex flex-wrap gap-2">
-          {["Coupon Codes", "Shopping Tips", "Discount", "Deals", "Cashback"].map(
-            (tag, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-blue-100 hover:text-blue-600 cursor-pointer transition"
-              >
-                #{tag}
-              </span>
-            )
-          )}
-        </div>
-      </div>
-
-      {/* Share Buttons */}
-      <div className="mt-10">
-        <h3 className="text-xl font-semibold mb-3">Share this article</h3>
-        <div className="flex gap-4">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Share on Facebook
-          </button>
-          <button className="px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500">
-            Share on Twitter
-          </button>
-          <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-            Share on WhatsApp
-          </button>
-        </div>
-      </div>
-
-      {/* Author Box */}
-      <div className="mt-12 bg-gray-100 p-6 rounded-xl flex gap-4 items-center shadow-sm">
-        <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold">
-          {author?.charAt(0)}
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold">{author}</h3>
-          <p className="text-gray-600 text-sm">
-            Passionate writer who loves helping people save money with smart
-            shopping, deals, and coupon strategies.
-          </p>
-        </div>
-      </div>
-
-      {/* Recommended Section */}
-      <div className="mt-14">
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-          Recommended Articles
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[1, 2].map((i) => (
+            {/* Render content HTML */}
             <div
-              key={i}
-              className="p-5 bg-white shadow-md rounded-xl hover:shadow-lg transition cursor-pointer"
-            >
-              <h4 className="text-lg font-semibold text-gray-800">
-                Related Article {i}
-              </h4>
-              <p className="text-gray-600 mt-2 text-sm">
-                Helpful tips and guides for smarter savings and online shopping.
-              </p>
-              <button className="mt-3 text-blue-600 font-medium">
-                Read More →
-              </button>
-            </div>
-          ))}
+              className={styles.blog_content}
+              dangerouslySetInnerHTML={{
+                __html: blog.content,
+              }}
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Next / Previous Buttons */}
-      <div className="mt-12 flex justify-between">
-        <button className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-          ← Previous Article
-        </button>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-          Next Article →
-        </button>
+        {/* ✅ Static Right Section */}
+        <div className="col-lg-4">
+          <div className={styles.blog_right_sec}>
+            <h4 className={styles.more_posts_head}>More Posts</h4>
+            {blogs
+              ?.filter((b) => b._id !== blog._id && b.blogStatus === "show")
+              .slice(0, 4)
+              .map((item) => (
+                <Link
+                  href={`/blog/${item.slug}`}
+                  key={item._id}
+                  className={`row ${styles.more_posts}`}
+                >
+                  <div className="col-4 py-2">
+                    <img
+                      src={`${IMG_URL}${item.blogImage}`}
+                      className={styles.blog_detail_img}
+                      height={0}
+                      width={0}
+                      sizes="100vw"
+                      alt={item.title.en}
+                    />
+                  </div>
+                  <div className="col-8 py-2">
+                    <h5>{item.title.en}</h5>
+                    <p>{new Date(item.createdAt).toLocaleDateString()}</p>
+                  </div>
+                </Link>
+              ))}
+            <Link href={"/blog"} className={styles.see_all_btn}>
+              See All
+            </Link>
+          </div>
+
+          <div className={styles.popular_tag_sec}>
+            <h5 className={styles.more_posts_head}>Popular Tags</h5>
+            <div className={styles.coupons_tags}>
+              <ul>
+                <li>Coupons</li>
+                <li>Flash Sale</li>
+                <li>Exclusive</li>
+                <li>Best Offer</li>
+                <li>Trending</li>
+                <li>Discount</li>
+                <li>Hot Deal</li>
+                <li>Best Offer</li>
+              </ul>
+            </div>
+            <Link href={""} className={styles.see_all_btn}>
+              See All
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
-
-export default BlogPages;
+}

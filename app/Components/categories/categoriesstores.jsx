@@ -33,15 +33,6 @@ const CategoriesStores = () => {
   const selectedItem = searchParams.get("name") || "Boat Ed";
   console.log(logo, "logo is caming");
 
-  const handleImageError = (e) => {
-    e.target.src = "https://via.placeholder.com/224x112?text=Store+Logo";
-    e.target.onerror = null;
-  };
-
-  const handlePopupImageError = (e) => {
-    e.target.src = "https://via.placeholder.com/48x48?text=Store";
-    e.target.onerror = null;
-  };
 
   const coupons = [
     {
@@ -208,7 +199,7 @@ const CategoriesStores = () => {
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
-      // 备用方法
+
       const textArea = document.createElement("textarea");
       textArea.value = text;
       document.body.appendChild(textArea);
@@ -647,84 +638,84 @@ const CategoriesStores = () => {
         </div>
       </div>
 
-      {popup && selectedCoupon && selectedCoupon.type === "code" && (
+   {popup && selectedCoupon && selectedCoupon.type === "code" && (
   <div
-    className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50 p-3 sm:p-4"
+    className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50 p-3 sm:p-2"
     onClick={() => setPopup(false)}
   >
     <div
-      className="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-5 sm:p-8"
+      className="relative bg-white rounded-2xl shadow-lg w-full max-w-xl max-h-[100vh] p-4 sm:p-5"
       onClick={(e) => e.stopPropagation()}
     >
       {/* Close Button */}
       <button
         onClick={() => setPopup(false)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 transition text-xl sm:text-2xl p-2 rounded-full hover:bg-gray-100"
+        className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 transition text-lg sm:text-xl p-1.5 rounded-full hover:bg-gray-100"
         aria-label="Close"
       >
         <MdClose />
       </button>
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-center gap-4 mb-6 text-center sm:text-left">
+      <div className="flex flex-col sm:flex-row items-center gap-3 mb-4 text-center sm:text-left">
         <Image
           src={logo}
           alt="Store Logo"
-          width={48}
-          height={48}
-          className="w-12 h-12 rounded-full object-cover"
+          width={40}
+          height={40}
+          className="w-10 h-10 rounded-full object-cover"
         />
 
         <div>
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
             {storeName}
           </h2>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-xs sm:text-sm">
             Code for: {selectedCoupon.title}
           </p>
         </div>
       </div>
 
       {/* Verified */}
-      <div className="flex justify-center sm:justify-start items-center text-gray-500 text-sm mb-5">
-        <span className="flex items-center gap-2">
+      <div className="flex justify-center sm:justify-start items-center text-gray-500 text-xs mb-4">
+        <span className="flex items-center gap-1">
           <span className="text-blue-500">✓</span>
           Verified {selectedCoupon.date}
         </span>
       </div>
 
       {/* Coupon Box */}
-      <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-5 sm:p-6 rounded-2xl border border-blue-200 shadow-inner">
-        <p className="text-center text-gray-600 text-sm mb-3">
+      <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200 shadow-inner">
+        <p className="text-center text-gray-600 text-xs mb-2">
           Use this code at checkout
         </p>
 
-        <div className="bg-white shadow-md rounded-xl p-4 text-center border relative">
-          <div className="text-xl sm:text-2xl tracking-widest font-semibold text-gray-800 break-all">
+        <div className="bg-white shadow-sm rounded-lg p-3 text-center relative">
+          <div className="text-lg sm:text-xl tracking-widest font-semibold text-gray-800 break-all">
             {selectedCoupon.code}
           </div>
 
           <button
             onClick={() => copyToClipboard(selectedCoupon.code)}
-            className="absolute top-3 right-3 text-gray-400 hover:text-blue-500 transition-colors"
+            className="absolute top-2 right-2 text-gray-400 hover:text-blue-500 transition-colors text-sm"
             aria-label="Copy code"
           >
             <FaCopy />
           </button>
 
           {copied && (
-            <div className="absolute top-3 right-10 bg-green-100 text-green-700 px-2 py-1 rounded text-xs">
+            <div className="absolute top-2 right-8 bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">
               Copied!
             </div>
           )}
         </div>
 
-        <div className="text-center mt-4">
+        <div className="text-center mt-3">
           <a
             href={selectedCoupon.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium hover:underline"
+            className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline"
           >
             Open Store →
           </a>
@@ -732,73 +723,72 @@ const CategoriesStores = () => {
       </div>
 
       {/* Feedback & Reminder */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-        <div className="border rounded-2xl p-4">
-          <p className="text-gray-500 text-sm mb-3 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+        <div className="rounded-xl p-3">
+          <p className="text-gray-500 text-xs mb-2 text-center">
             Did it work?
           </p>
-          <div className="flex justify-center gap-3 flex-wrap">
-            <button className="px-5 py-2 border rounded-xl bg-green-100 text-green-700 hover:bg-green-200 transition">
+          <div className="flex justify-center gap-2">
+            <button className="px-3 py-1.5 rounded-lg bg-green-100 text-green-700 hover:bg-green-200 transition text-sm">
               Worked ✓
             </button>
-            <button className="px-5 py-2 border rounded-xl text-gray-700 hover:bg-gray-100 transition">
-              Didn’t work
+            <button className="px-3 py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm">
+              Didn't work
             </button>
           </div>
         </div>
 
-        <div className="border rounded-2xl p-4">
-          <p className="text-gray-500 text-sm mb-3 text-center">
+        <div className="rounded-xl p-3">
+          <p className="text-gray-500 text-xs mb-2 text-center">
             Reminder
           </p>
-          <button className="w-full px-5 py-2 border rounded-xl text-gray-700 hover:bg-gray-100 transition">
+          <button className="w-full px-3 py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm">
             Save this store
           </button>
         </div>
       </div>
 
       {/* Share */}
-      <div className="mt-8">
-        <p className="text-gray-500 text-sm mb-4 text-center">
+      <div className="mt-6">
+        <p className="text-gray-500 text-xs mb-3 text-center">
           Share with a friend
         </p>
 
-        <div className="flex justify-center gap-3 flex-wrap">
+        <div className="flex justify-center gap-2 flex-wrap">
           <button
             onClick={() => handleShare("facebook")}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl border text-blue-600 hover:bg-blue-50 transition"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition text-sm"
           >
-            <FaFacebook /> Facebook
+            <FaFacebook size={14} /> Facebook
           </button>
 
           <button
             onClick={() => handleShare("twitter")}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl border text-gray-700 hover:bg-gray-100 transition"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm"
           >
-            <FaTwitter /> Twitter
+            <FaTwitter size={14} /> Twitter
           </button>
 
           <button
             onClick={() => handleShare("whatsapp")}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl border text-green-600 hover:bg-green-50 transition"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg border text-green-600 hover:bg-green-50 transition text-sm"
           >
-            <FaWhatsapp /> WhatsApp
+            <FaWhatsapp size={14} /> WhatsApp
           </button>
         </div>
 
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-3">
           <button
             onClick={() => handleShare("general")}
-            className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition"
+            className="flex items-center gap-1 px-3 py-1 text-xs text-gray-600 hover:text-gray-800 transition"
           >
-            <FaShareAlt /> Share via…
+            <FaShareAlt size={12} /> Share via...
           </button>
         </div>
       </div>
     </div>
   </div>
 )}
-
 
       <style jsx global>{`
         @keyframes fadeIn {

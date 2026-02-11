@@ -156,29 +156,7 @@ const DetailsCoupon = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 font-inter">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-gray-700 hover:text-indigo-600 transition-all"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back</span>
-          </button>
-          <h1 className="text-lg font-semibold text-gray-800 hidden sm:block">
-            Deal Details
-          </h1>
-          <button
-            onClick={handleShare}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all flex items-center gap-2"
-          >
-            <Share2 size={16} />
-            <span>Share</span>
-          </button>
-        </div>
-      </header>
-
+   
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-10">
@@ -193,7 +171,7 @@ const DetailsCoupon = () => {
                 <div className="flex items-center gap-5">
                   <div className="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center border shadow-sm">
                     {logo ? (
-                      <Image src={logo} alt="store" className="object-contain w-full h-full p-2" />
+                      <img src={logo} alt="store" className="object-contain w-full h-full p-2" />
                     ) : (
                       <span className="text-gray-400 text-sm">No Logo</span>
                     )}

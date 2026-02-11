@@ -2,15 +2,19 @@
 
 import React, { useState } from "react";
 import { MdPeopleAlt } from "react-icons/md";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { get } from "http";
 
 const AllDeals = () => {
   const router=useRouter();
 
+  const searchParams=useSearchParams();
+  
+
   const [hidden, setHidden] = useState(true);
   const [popupCode, setPopupCode] = useState("");
   const [popupStore, setPopupStore] = useState("");
-  const [popupStatus, setPopupStatus] = useState(null); // "works" or "not"
+  const [popupStatus, setPopupStatus] = useState(null);
 
   const handleHidden = () => setHidden(!hidden);
 

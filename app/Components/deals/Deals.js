@@ -74,10 +74,12 @@ const Deals = () => {
   };
 
   const handleCoupon = (item) => {
-    router.push(`/detailscoupon/${item.title}`, {
-      // state: item,
-    });
-  };
+  const params = new URLSearchParams({
+    logo: item.logo,
+  });
+
+  router.push(`/detailscoupon/${item.title}?${params.toString()}`);
+};
 
   const filteredCoupons = couponData.filter(
     (item) =>
@@ -114,7 +116,7 @@ const Deals = () => {
         </div>
 
         {/* Coupon Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 lg:ml-20 lg:mr-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-8 lg:ml-20 lg:mr-20">
           {filteredCoupons.map((item) => (
             <div
               key={item.id}
