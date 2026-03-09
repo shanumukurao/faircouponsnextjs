@@ -1,6 +1,6 @@
 // app/blogs/[slug]/page.jsx
-import { fetchListingDataById, fetchProductsData } from "@/app/api/action";
-import BlogPages from "../../../Components/Home/BlogPages";
+import { fetchListingDataById, fetchProductsData } from "../../../lib/db";
+import BlogDetails from "../../../Components/blogDetails/BlogDetails";
 import { notFound } from "next/navigation";
 
 async function getBlogDetails(slug) {
@@ -22,5 +22,5 @@ export default async function Page({ params }) {
     return notFound();
   }
 
-  return <BlogPages blog={blog} blogs={blogs} />;
+  return <BlogDetails blog={blog} blogs={blogs} />;
 }

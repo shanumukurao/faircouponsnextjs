@@ -1,7 +1,6 @@
+import BlogDetails from "@/components/blogDetails/BlogDetail";
 import React from "react";
-import BlogPages from "../../Components/Home/BlogPages"
 
-
-export default function Page(){
-    return <BlogPages/>
+export default function Page() {
+  return <BlogDetails />;
 }

@@ -584,7 +584,7 @@ const cashback = searchParams.get("cashback") || "Flat 2.5% Cashback";
       </div>
 
       {/* About Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 text-start tracking-tight">
           About <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
             {name || 'the Store'}
@@ -615,66 +615,97 @@ const cashback = searchParams.get("cashback") || "Flat 2.5% Cashback";
       </div>
 
       {/* Coupon Code Popup */}
-    {popup && selectedCoupon && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black/30 bg-opacity-50 backdrop-blur-sm z-50 p-4">
-    <div className="relative bg-white/95 backdrop-blur-md border border-gray-200 shadow-2xl rounded-3xl w-full max-w-lg p-6 md:p-8 animate-fadeIn">
+ {popup && selectedCoupon && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-3 sm:px-4">
+    
+    {/* Modal */}
+    <div className="
+      relative w-full max-w-lg
+      max-h-[90vh] overflow-y-auto
+      bg-white/95 backdrop-blur-md
+      border border-gray-200 shadow-2xl
+      rounded-2xl sm:rounded-3xl
+      p-4 sm:p-6 md:p-8
+      animate-fadeIn
+    ">
 
       {/* Close Button */}
       <button
         onClick={() => { setPopup(false); setSelectedCoupon(null); }}
-        className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition text-2xl font-bold"
+        className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-800 text-xl sm:text-2xl"
       >
         <MdClose />
       </button>
 
       {/* Title */}
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-6">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4 sm:mb-6">
         🎉 Copy Your Coupon Code
       </h2>
 
-      {/* Code Display Box */}
-      <div className="flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-2xl border border-blue-200 shadow-inner mb-6">
-        <span className="text-lg md:text-xl font-extrabold text-blue-700 tracking-wider break-all">
+      {/* Code Box */}
+      <div className="
+        flex flex-col sm:flex-row gap-3
+        items-center justify-between
+        bg-gradient-to-r from-blue-50 to-blue-100
+        p-3 sm:p-4 rounded-xl sm:rounded-2xl
+        border border-blue-200 shadow-inner mb-5
+      ">
+        <span className="text-base sm:text-lg md:text-xl font-extrabold text-blue-700 tracking-wider break-all text-center sm:text-left">
           {selectedCoupon.code}
         </span>
+
         <button
           onClick={handleCopyCode}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl font-semibold shadow-md hover:shadow-lg transition flex items-center space-x-2"
+          className="
+            w-full sm:w-auto
+            bg-blue-600 hover:bg-blue-700
+            text-white px-4 py-2 rounded-lg sm:rounded-xl
+            font-semibold shadow-md
+            flex items-center justify-center gap-2
+          "
         >
           <FaCopy className="text-sm" />
-          <span>{copied ? "Copied" : "Copy"}</span>
+          {copied ? "Copied" : "Copy"}
         </button>
       </div>
 
-      {/* Open Store Button */}
-      <button className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transition-all duration-300 transform hover:scale-105 mb-6">
+      {/* Open Store */}
+      <button className="
+        w-full mb-5
+        bg-gradient-to-r from-green-500 to-emerald-600
+        hover:from-green-600 hover:to-emerald-700
+        text-white py-2.5 rounded-lg sm:rounded-xl
+        font-semibold shadow-md
+        transition transform active:scale-95
+      ">
         🛍️ Open Store
       </button>
 
-      {/* Feedback + Save Store Section */}
-      <div className="flex flex-col md:flex-row justify-between gap-4">
-        
-        {/* Feedback Section */}
-        <div className="flex-1 bg-white/80 rounded-xl shadow-inner border border-gray-200 py-4 px-3 text-center">
-          <h3 className="text-gray-800 font-semibold mb-2 text-sm md:text-base">
+      {/* Bottom Section */}
+      <div className="flex flex-col sm:flex-row gap-4">
+
+        {/* Feedback */}
+        <div className="flex-1 bg-white/80 rounded-xl border shadow-inner p-3 text-center">
+          <h3 className="text-sm sm:text-base font-semibold mb-2">
             Did this code work?
           </h3>
+
           <div className="flex justify-center gap-2">
-            <button className="bg-green-100 text-green-700 px-4 py-1.5 rounded-lg hover:bg-green-200 font-medium text-sm md:text-base transition-all duration-300 shadow-sm">
+            <button className="px-4 py-1.5 rounded-lg bg-green-100 text-green-700 hover:bg-green-200 text-sm font-medium">
               👍 Worked
             </button>
-            <button className="bg-red-100 text-red-700 px-4 py-1.5 rounded-lg hover:bg-red-200 font-medium text-sm md:text-base transition-all duration-300 shadow-sm">
+            <button className="px-4 py-1.5 rounded-lg bg-red-100 text-red-700 hover:bg-red-200 text-sm font-medium">
               👎 Didn’t
             </button>
           </div>
         </div>
 
-        {/* Save Store Section */}
-        <div className="flex-1 bg-white/80 rounded-xl shadow-inner border border-gray-200 py-4 px-3 text-center">
-          <h3 className="text-gray-800 font-semibold mb-2 text-sm md:text-base">
+        {/* Save Store */}
+        <div className="flex-1 bg-white/80 rounded-xl border shadow-inner p-3 text-center">
+          <h3 className="text-sm sm:text-base font-semibold mb-2">
             Reminder
           </h3>
-          <button className="bg-blue-100 text-blue-700 px-5 py-1.5 rounded-lg hover:bg-blue-200 font-medium text-sm md:text-base transition-all duration-300 shadow-sm">
+          <button className="px-5 py-1.5 rounded-lg bg-blue-100 text-blue-700 hover:bg-blue-200 text-sm font-medium">
             💾 Save Store
           </button>
         </div>
@@ -683,7 +714,6 @@ const cashback = searchParams.get("cashback") || "Flat 2.5% Cashback";
     </div>
   </div>
 )}
-
 
     </div>
   );

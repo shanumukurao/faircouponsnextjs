@@ -39,84 +39,98 @@ const Offers = () => {
     <>
       {/* TOP HEADER SECTION */}
       <div className="min-h-screen">
-        <div className="bg-gradient-to-b from-[#6C63FF] to-[#3D3BFF] p-10 lg:p-14 flex flex-col lg:flex-row gap-14 shadow-xl">
-          {/* LEFT - DETAILS */}
-          <div className="w-full lg:w-1/2 text-white">
-            <div className="text-sm opacity-80 flex gap-2">
-              <span className="hover:underline cursor-pointer">Stores</span>
-              <span>/</span>
-              <span className="hover:underline cursor-pointer">Categories</span>
-              <span>/</span>
-              <span className="font-medium">{store}</span>
-            </div>
+        <div className="bg-gradient-to-b from-[#6C63FF] to-[#3D3BFF] py-10 px-5 lg:px-14">
+  <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12 shadow-xl">
 
-            <div className="mt-5 inline-block bg-white/20 backdrop-blur-md px-6 py-2 rounded-full text-sm tracking-wide shadow-sm">
-              STORE PARTNER HUB
-            </div>
+    {/* LEFT - DETAILS */}
+    <div className="w-full lg:w-1/2 text-white">
+      
+      <div className="text-sm opacity-80 flex flex-wrap gap-2">
+        <span className="hover:underline cursor-pointer">Stores</span>
+        <span>/</span>
+        <span className="hover:underline cursor-pointer">Categories</span>
+        <span>/</span>
+        <span className="font-medium">{store}</span>
+      </div>
 
-            <h1 className="text-5xl font-bold mt-5 leading-tight">{store}</h1>
+      <div className="mt-5 inline-block bg-white/20 backdrop-blur-md px-5 py-2 rounded-full text-sm tracking-wide shadow-sm">
+        STORE PARTNER HUB
+      </div>
 
-            <p className="opacity-90 mt-4 text-[15px] max-w-md leading-relaxed">
-              Discover hand-picked coupons, stacks, and exclusive offers curated
-              for this store.
-            </p>
+      <h1 className="text-4xl lg:text-5xl font-bold mt-5 leading-tight">
+        {store}
+      </h1>
 
-            <button className="mt-7 bg-white/20 hover:bg-white/30 backdrop-blur px-6 py-2.5 rounded-xl text-white flex items-center gap-3 transition shadow-md">
-              <i className="fas fa-link"></i> Copy store link
-            </button>
+      <p className="opacity-90 mt-4 text-sm lg:text-[15px] max-w-md leading-relaxed">
+        Discover hand-picked coupons, stacks, and exclusive offers curated
+        for this store.
+      </p>
 
-            <div className="grid grid-cols-4 gap-6 mt-10 text-center">
-              <div>
-                <h2 className="text-3xl font-bold">1</h2>
-                <p className="text-[11px] opacity-80 mt-1">TOTAL STORES</p>
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold">0</h2>
-                <p className="text-[11px] opacity-80 mt-1">EXCLUSIVE STORES</p>
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold">0</h2>
-                <p className="text-[11px] opacity-80 mt-1">COUPONS CODES</p>
-              </div>
-              <div>
-                <h2 className="text-xl font-semibold leading-tight">
-                  Fresh offers weekly
-                </h2>
-                <p className="text-[11px] opacity-80 mt-1">TOP SAVING</p>
-              </div>
-            </div>
-          </div>
+      <button className="mt-7 bg-white/20 hover:bg-white/30 backdrop-blur px-6 py-2.5 rounded-xl text-white flex items-center gap-3 transition shadow-md">
+        <i className="fas fa-link"></i> Copy store link
+      </button>
 
-          {/* RIGHT LOGO + TOP OFFER */}
-          <div className="w-full lg:w-1/2 space-y-8">
-            <div className="backdrop-blur-lg h-52 rounded-3xl flex items-center justify-center shadow-lg bg-white/10">
-              <img
-                src={logo}
-                alt="Store Logo"
-                className="h-28 w-28 object-contain mix-blend-multiply"
-              />
-            </div>
-
-            <div className="bg-white rounded-3xl p-7 shadow-xl">
-              <div className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm w-fit mb-5 font-medium">
-                ● Top offer
-              </div>
-
-              <h3 className="text-2xl font-bold text-gray-900">
-                {store} Coupon
-              </h3>
-
-              <p className="text-gray-600 mt-2 flex items-center gap-2 text-sm">
-                <i className="fas fa-tag text-blue-600"></i>
-                Automatic discount applied
-              </p>
-
-              <button className="mt-6 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-medium w-fit transition">
-                Reveal details
-              </button>
-            </div>
-          </div>
+      {/* STATS */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-10 text-center">
+        <div>
+          <h2 className="text-3xl font-bold">1</h2>
+          <p className="text-[11px] opacity-80 mt-1">TOTAL STORES</p>
         </div>
+
+        <div>
+          <h2 className="text-3xl font-bold">0</h2>
+          <p className="text-[11px] opacity-80 mt-1">EXCLUSIVE STORES</p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-bold">0</h2>
+          <p className="text-[11px] opacity-80 mt-1">COUPONS CODES</p>
+        </div>
+
+        <div>
+          <h2 className="text-lg font-semibold leading-tight">
+            Fresh offers weekly
+          </h2>
+          <p className="text-[11px] opacity-80 mt-1">TOP SAVING</p>
+        </div>
+      </div>
+    </div>
+
+    {/* RIGHT LOGO + TOP OFFER */}
+    <div className="w-full lg:w-1/2 space-y-8">
+
+      <div className="backdrop-blur-lg h-52 rounded-3xl flex items-center justify-center shadow-lg bg-white/10">
+        <img
+          src={logo}
+          alt="Store Logo"
+          className="h-24 w-24 lg:h-28 lg:w-28 object-contain"
+        />
+      </div>
+
+      <div className="bg-white rounded-3xl p-6 lg:p-7 shadow-xl">
+
+        <div className="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-sm w-fit mb-5 font-medium">
+          ● Top offer
+        </div>
+
+        <h3 className="text-xl lg:text-2xl font-bold text-gray-900">
+          {store} Coupon
+        </h3>
+
+        <p className="text-gray-600 mt-2 flex items-center gap-2 text-sm">
+          <i className="fas fa-tag text-blue-600"></i>
+          Automatic discount applied
+        </p>
+
+        <button className="mt-6 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl font-medium transition">
+          Reveal details
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 
         {/* MAIN CONTENT BELOW */}
         <div className="w-full flex flex-col lg:flex-row gap-8 p-6 max-w-5xl mx-auto gap-2">

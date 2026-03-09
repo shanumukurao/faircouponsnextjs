@@ -27,12 +27,11 @@ const CategoriesStores = () => {
   const searchParams = useSearchParams();
 
   const storeName = searchParams.get("name") || "Boat Ed";
- const logo = decodeURIComponent(searchParams.get("logo"));
+  const logo = decodeURIComponent(searchParams.get("logo"));
   const storeRating = parseFloat(searchParams.get("rating")) || 4.5;
   const deals = searchParams.get("deal") || "Deal";
   const selectedItem = searchParams.get("name") || "Boat Ed";
   console.log(logo, "logo is caming");
-
 
   const coupons = [
     {
@@ -43,7 +42,7 @@ const CategoriesStores = () => {
       used: 16,
       time: "4 months ago",
       verified: true,
-      viewed:22,
+      viewed: 22,
       code: "BOAT70",
       title: "70% Off Boating Course",
       date: "2 days ago",
@@ -58,7 +57,7 @@ const CategoriesStores = () => {
       time: "5 months ago",
       verified: true,
       code: "BOAT10",
-      viewed:22,
+      viewed: 22,
       title: "10% Off Courses",
       date: "1 week ago",
       link: "https://www.boated.com",
@@ -71,7 +70,7 @@ const CategoriesStores = () => {
       used: 10,
       time: "5 months ago",
       verified: true,
-      viewed:22,
+      viewed: 22,
       code: "SAFETY40",
       title: "40% Off Safety Course",
       date: "3 days ago",
@@ -85,7 +84,7 @@ const CategoriesStores = () => {
       used: 1,
       time: "3 months ago",
       verified: true,
-      viewed:22,
+      viewed: 22,
       code: "REFER25",
       title: "Referral Bonus",
       date: "1 month ago",
@@ -99,7 +98,7 @@ const CategoriesStores = () => {
       used: 0,
       time: "1 year ago",
       verified: true,
-      viewed:22,
+      viewed: 22,
       code: "BOAT45",
       title: "45% Off All Courses",
       date: "2 months ago",
@@ -113,7 +112,7 @@ const CategoriesStores = () => {
       used: 5,
       time: "2 weeks ago",
       verified: true,
-      viewed:22,
+      viewed: 22,
       code: "CASH25",
       title: "25% Cashback",
       date: "5 days ago",
@@ -232,7 +231,6 @@ const CategoriesStores = () => {
     };
   }, [popup]);
 
-
   const handleShare = (platform) => {
     const shareUrl = window.location.href;
     const shareText = `Check out these amazing ${storeName} coupon codes!`;
@@ -271,541 +269,536 @@ const CategoriesStores = () => {
   };
 
   return (
-    <div className="py-4 px-28 bg-gradient-to-br from-blue-50 to-indigo-100">
-      <nav className="flex items-center gap-2 text-gray-600 text-sm mb-6 p-6 max-w-7xl mx-auto">
-        <span
-          className="cursor-pointer hover:text-black transition"
-          onClick={() => router.push("/")}
-        >
-          Home
-        </span>
-        <span>/</span>
-        <span
-          className="cursor-pointer hover:text-black transition"
-          onClick={() => router.push("/stores")}
-        >
-          Stores
-        </span>
-        <span>/</span>
-        <span className="text-black font-semibold">{storeName}</span>
-      </nav>
-
-      <div className="flex flex-col lg:flex-row p-6 gap-6 max-w-7xl mx-auto">
-     
-        <div className="lg:w-1/3 space-y-6">
-        
-          <div className="bg-white/80 backdrop-blur-sm p-6 shadow-xl rounded-2xl border border-white/20">
-            <div className="flex items-center justify-center">
-              <div className="p-2 rounded-xl shadow-inner bg-white">
-                <img
-      src={logo}
-      width={220}
-      height={220}
-      alt={storeName}
-      className="w-56 h-28 object-contain"
-    />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6">
-            <h1 className="text-xl font-semibold text-gray-800 mb-4">
-              Trending {storeName} Coupon Codes & Offers
-            </h1>
-            <div className="space-y-3 mb-4">
-              <p className="flex items-center text-green-600 font-semibold">
-                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                Up to 75% off on Boat licenses
-              </p>
-              <p className="flex items-center text-green-600 font-semibold">
-                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                Get 15% on the secured boating courses
-              </p>
-            </div>
-
-            <div className="bg-blue-50 rounded-xl p-4 mb-4">
-              <h2 className="text-center font-semibold text-lg text-gray-800 mb-3">
-                Today's {storeName} Top Offers
-              </h2>
-              <div className="flex justify-between text-center">
-                <div>
-                  <h3 className="font-semibold text-gray-600">Total Offers</h3>
-                  <p className="text-2xl font-bold text-blue-600">
-                    {coupons.length}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-600">Coupon Codes</h3>
-                  <p className="text-2xl font-bold text-green-600">
-                    {coupons.filter((c) => c.type === "code").length}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6">
-            <h1 className="text-xl font-semibold text-center text-gray-800 mb-4">
-              Boating Shopping Tips
-            </h1>
-            <div className="space-y-4">
-              <div>
-                <h2 className="font-bold text-gray-800 mb-2">
-                  Newsletter Subscriptions
-                </h2>
-                <p className="text-gray-600 text-sm">
-                  Subscribe to the {storeName} newsletter to receive email
-                  notifications about special deals and discounts on boating
-                  courses and licenses.
-                </p>
-              </div>
-              <div>
-                <h2 className="font-bold text-gray-800 mb-2">Refer and Earn</h2>
-                <p className="text-gray-600 text-sm">
-                  Refer friends to {storeName} and earn exciting rewards. Share
-                  your unique referral code and get discounts on your next
-                  course purchase.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6">
-            <h1 className="text-xl font-semibold text-gray-800 mb-4">
-              Similar Stores
-            </h1>
-            <div className="grid grid-cols-2 gap-2">
-              {similarStores.map((store, index) => (
-                <Link
-                  key={index}
-                  href={`/store?name=${encodeURIComponent(store)}`}
-                  className="text-blue-500 hover:text-blue-700 transition-colors text-sm p-2 hover:bg-blue-50 rounded-lg block"
-                >
-                  {store}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:w-2/3 space-y-6">
-          <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">
-              {storeName.toUpperCase()} COUPON CODE & DISCOUNTS - NOVEMBER 2025
-            </h1>
-            <p className="text-gray-600 mb-4">
-              {filteredCoupons.length} {storeName} Coupons And Promotional Codes
-              Available For Today
-            </p>
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-              <div className="flex space-x-2 flex-wrap">
-                <button
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                    activeTab === "all"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() => setActiveTab("all")}
-                >
-                  All ({coupons.length})
-                </button>
-                <button
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                    activeTab === "coupon"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() => setActiveTab("coupon")}
-                >
-                  Coupon ({coupons.filter((c) => c.type === "code").length})
-                </button>
-                <button
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                    activeTab === "deals"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() => setActiveTab("deals")}
-                >
-                  Deals ({coupons.filter((c) => c.type === "deal").length})
-                </button>
-                <button
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-                    activeTab === "cashback"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
-                  onClick={() => setActiveTab("cashback")}
-                >
-                  Cashback (
-                  {coupons.filter((c) => c.type === "cashback").length})
-                </button>
-              </div>
-              <div className="flex flex-col items-center space-y-1">
-                <div className="flex items-center space-x-2 text-yellow-500">
-                  <span className="text-4xl">★</span>
-                  <div className="flex flex-col -space-y-1">
-                    <span className="text-xl font-semibold text-black">
-                      {storeRating} / 5
-                    </span>
-                    <span className="text-gray-600 text-sm">16 Votes</span>
-                  </div>
-                </div>
-                <button className="text-blue-600 text-lg hover:underline">
-                  Rate This
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            {filteredCoupons.map((coupon) => (
-              <div
-                key={coupon.id}
-                className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6"
-              >
-                <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-3 gap-3">
-                  <div className="flex items-start space-x-3">
-                    <span
-                      className={`${
-                        coupon.discount === "COUPON"
-                          ? "bg-purple-500"
-                          : coupon.type === "cashback"
-                            ? "bg-yellow-500"
-                            : "bg-red-500"
-                      } text-white px-3 py-1 rounded-full font-bold text-sm whitespace-nowrap`}
-                    >
-                      {coupon.discount}
-                    </span>
-                    <p className="text-gray-700 font-medium">
-                      {coupon.description}
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => toggleCoupon(coupon.id)}
-                  className="text-blue-500 hover:text-blue-700 text-sm font-medium mb-3 transition-colors"
-                >
-                  {expandedCoupon === coupon.id ? "Hide" : "Show"} Coupon
-                  Details
-                </button>
-
-                {expandedCoupon === coupon.id && (
-                  <div className="bg-blue-50 rounded-lg p-4 mb-3 animate-fade-in">
-                    <p className="text-gray-700 mb-2 font-semibold">
-                      Terms & Conditions:
-                    </p>
-                    <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
-                      <li>Valid for new customers only</li>
-                      <li>Minimum purchase of $50 required</li>
-                      <li>Cannot be combined with other offers</li>
-                      <li>Valid until December 31, 2025</li>
-                    </ul>
-                  </div>
-                )}
-
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between pt-3 border-t border-gray-200 gap-3">
-                  <div className="flex items-center space-x-2 flex-wrap">
-                    {coupon.verified && (
-                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium flex items-center">
-                        ✓ Verified Code
-                      </span>
-                    )}
-                     <span className="bg-green-100 text-green-700 rounded-sm px-2 py-1 text-xs">
-                      ✓ {coupon.viewed} View
-                    </span>
-                    <span className="text-gray-500 text-sm">
-                      {coupon.used} used
-                    </span>
-                    <span className="text-gray-500 text-sm">
-                      • {coupon.time}
-                    </span>
-                   
-                  </div>
-                  <button
-                    onClick={() => handlePopup(coupon)}
-                    className={`px-6 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
-                      coupon.type === "code"
-                        ? "bg-blue-500 hover:bg-blue-600 text-white"
-                        : coupon.type === "cashback"
-                          ? "bg-yellow-500 hover:bg-yellow-600 text-white"
-                          : "bg-green-500 hover:bg-green-600 text-white"
-                    }`}
-                  >
-                    {coupon.type === "code"
-                      ? "Show Code"
-                      : coupon.type === "cashback"
-                        ? "Get Cashback"
-                        : "Activate Deal"}
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6">
-            <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-              About {storeName}
-            </h1>
-            <div className="flex flex-col lg:flex-row items-center gap-6 mb-6">
-              <div className="lg:w-1/3 bg-blue-100 p-6 rounded-2xl shadow-inner flex items-center justify-center">
-                <div className="w-full h-48 bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold">
-                    Store Image
-                  </span>
-                </div>
-              </div>
-              <div className="lg:w-2/3">
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Whether you are a recreational boat operator or professional,
-                  many countries and states have made it mandatory to have a
-                  boat license and insurance to ride legally. The laws and
-                  regulations differ from region to region, but license and
-                  certification remain the common element. Having a boat
-                  driver's license means having enough knowledge to drive a
-                  boat. Common prerequisites to owning a boat license include
-                  minimum age, good health, etc.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  {storeName} is a delegated provider of boat courses and
-                  boating licenses. Visit www.boated.com to take the
-                  state-approved course to complete your online boating safety
-                  education. In return, you will get the necessary certificates
-                  and licenses to ride and enjoy boating. While at it, apply the{" "}
-                  {storeName} coupon code available on CouponPin and secure big
-                  savings.
-                </p>
-              </div>
-            </div>
-
-            <h2 className="font-bold text-xl text-gray-800 mb-4">
-              Why is it necessary to take the Boater safety course?
-            </h2>
-            <p className="text-gray-700 leading-relaxed">
-              Millions of people enjoy riverside, ocean, and lake boating for
-              recreational reasons. Nothing quite compares to a day out on a
-              boat. Whether it may be a family tradition, part of the exercise,
-              or sports, boating will make you forget the phone. But, the
-              excitement is a twin of risk. There are potential risks while
-              operating a boat as it is not a complete safe task. Hence, it is a
-              big responsibility of the passengers and the boat operator to be
-              educated about boat safety practices.
-            </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
-              If you are a beginner, a boating certificate or education course
-              is a great first step to preparing for life in water. Wondering
-              where I can get my boat safety education? {storeName} has what you
-              are looking for. It provides online and practical education
-              courses, which you can complete at your own pace in the comfort of
-              your home. Each Indian state has different laws and regulations.
-              The platform has state-specific boating safety courses for
-              recreational boaters of all ages. Visit www.boat-ed.com to learn
-              more about your state's rules and regulations.
-            </p>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-6">
-            <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
-              Frequently Asked Questions
-            </h1>
-            <div className="space-y-4">
-              {faqData.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border border-gray-200 rounded-xl overflow-hidden"
-                >
-                  <button
-                    className="w-full px-4 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition-colors flex justify-between items-center"
-                    onClick={() => toggleFaq(index)}
-                  >
-                    {faq.question}
-                    <span
-                      className={`transform transition-transform ${expandedFaq === index ? "rotate-180" : ""}`}
-                    >
-                      ▼
-                    </span>
-                  </button>
-                  {expandedFaq === index && (
-                    <div className="px-4 py-3 bg-gray-50 text-gray-700 animate-fade-in">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-   {popup && selectedCoupon && selectedCoupon.type === "code" && (
-  <div
-    className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50 p-3 sm:p-2"
-    onClick={() => setPopup(false)}
-  >
-    <div
-      className="relative bg-white rounded-2xl shadow-lg w-full max-w-xl max-h-[100vh] p-4 sm:p-5"
-      onClick={(e) => e.stopPropagation()}
+    <div className="py-4 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-28 bg-gradient-to-br from-blue-50 to-indigo-100">
+  <nav className="flex items-center gap-2 text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6 p-4 sm:p-6 max-w-7xl mx-auto">
+    <span
+      className="cursor-pointer hover:text-black transition truncate"
+      onClick={() => router.push("/")}
     >
-      {/* Close Button */}
-      <button
-        onClick={() => setPopup(false)}
-        className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 transition text-lg sm:text-xl p-1.5 rounded-full hover:bg-gray-100"
-        aria-label="Close"
-      >
-        <MdClose />
-      </button>
+      Home
+    </span>
+    <span>/</span>
+    <span
+      className="cursor-pointer hover:text-black transition truncate"
+      onClick={() => router.push("/stores")}
+    >
+      Stores
+    </span>
+    <span>/</span>
+    <span className="text-black font-semibold truncate">{storeName}</span>
+  </nav>
 
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row items-center gap-3 mb-4 text-center sm:text-left">
-        <Image
-          src={logo}
-          alt="Store Logo"
-          width={40}
-          height={40}
-          className="w-10 h-10 rounded-full object-cover"
-        />
+  <div className="flex flex-col lg:flex-row p-4 sm:p-6 gap-4 sm:gap-6 max-w-7xl mx-auto">
+    {/* Sidebar - Full width on mobile, 1/3 on desktop */}
+    <div className="lg:w-1/3 space-y-4 sm:space-y-6">
+      {/* Logo Card */}
+      <div className="bg-white/80 backdrop-blur-sm p-4 sm:p-6 shadow-xl rounded-xl sm:rounded-2xl border border-white/20">
+        <div className="flex items-center justify-center">
+          <div className="p-2 rounded-xl shadow-inner bg-white">
+            <img
+              src={logo}
+              width={220}
+              height={220}
+              alt={storeName}
+              className="w-40 sm:w-48 md:w-56 h-20 sm:h-24 md:h-28 object-contain"
+            />
+          </div>
+        </div>
+      </div>
 
-        <div>
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
-            {storeName}
+      {/* Trending Offers Card */}
+      <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6">
+        <h1 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
+          Trending {storeName} Coupon Codes & Offers
+        </h1>
+        <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4">
+          <p className="flex items-center text-green-600 font-semibold text-sm sm:text-base">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full mr-2"></span>
+            Up to 75% off on Boat licenses
+          </p>
+          <p className="flex items-center text-green-600 font-semibold text-sm sm:text-base">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full mr-2"></span>
+            Get 15% on the secured boating courses
+          </p>
+        </div>
+
+        <div className="bg-blue-50 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-3 sm:mb-4">
+          <h2 className="text-center font-semibold text-base sm:text-lg text-gray-800 mb-2 sm:mb-3">
+            Today's {storeName} Top Offers
           </h2>
-          <p className="text-gray-500 text-xs sm:text-sm">
-            Code for: {selectedCoupon.title}
-          </p>
-        </div>
-      </div>
-
-      {/* Verified */}
-      <div className="flex justify-center sm:justify-start items-center text-gray-500 text-xs mb-4">
-        <span className="flex items-center gap-1">
-          <span className="text-blue-500">✓</span>
-          Verified {selectedCoupon.date}
-        </span>
-      </div>
-
-      {/* Coupon Box */}
-      <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-4 rounded-xl border border-blue-200 shadow-inner">
-        <p className="text-center text-gray-600 text-xs mb-2">
-          Use this code at checkout
-        </p>
-
-        <div className="bg-white shadow-sm rounded-lg p-3 text-center relative">
-          <div className="text-lg sm:text-xl tracking-widest font-semibold text-gray-800 break-all">
-            {selectedCoupon.code}
-          </div>
-
-          <button
-            onClick={() => copyToClipboard(selectedCoupon.code)}
-            className="absolute top-2 right-2 text-gray-400 hover:text-blue-500 transition-colors text-sm"
-            aria-label="Copy code"
-          >
-            <FaCopy />
-          </button>
-
-          {copied && (
-            <div className="absolute top-2 right-8 bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">
-              Copied!
+          <div className="flex justify-between text-center">
+            <div>
+              <h3 className="font-semibold text-gray-600 text-xs sm:text-sm">Total Offers</h3>
+              <p className="text-xl sm:text-2xl font-bold text-blue-600">{coupons.length}</p>
             </div>
-          )}
-        </div>
-
-        <div className="text-center mt-3">
-          <a
-            href={selectedCoupon.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm hover:underline"
-          >
-            Open Store →
-          </a>
+            <div>
+              <h3 className="font-semibold text-gray-600 text-xs sm:text-sm">Coupon Codes</h3>
+              <p className="text-xl sm:text-2xl font-bold text-green-600">
+                {coupons.filter((c) => c.type === "code").length}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Feedback & Reminder */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
-        <div className="rounded-xl p-3">
-          <p className="text-gray-500 text-xs mb-2 text-center">
-            Did it work?
-          </p>
-          <div className="flex justify-center gap-2">
-            <button className="px-3 py-1.5 rounded-lg bg-green-100 text-green-700 hover:bg-green-200 transition text-sm">
-              Worked ✓
+      {/* Shopping Tips Card */}
+      <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6">
+        <h1 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-3 sm:mb-4">
+          Boating Shopping Tips
+        </h1>
+        <div className="space-y-3 sm:space-y-4">
+          <div>
+            <h2 className="font-bold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2">
+              Newsletter Subscriptions
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-sm">
+              Subscribe to the {storeName} newsletter to receive email
+              notifications about special deals and discounts on boating
+              courses and licenses.
+            </p>
+          </div>
+          <div>
+            <h2 className="font-bold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2">Refer and Earn</h2>
+            <p className="text-gray-600 text-xs sm:text-sm">
+              Refer friends to {storeName} and earn exciting rewards. Share
+              your unique referral code and get discounts on your next
+              course purchase.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Similar Stores Card */}
+      <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6">
+        <h1 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
+          Similar Stores
+        </h1>
+        <div className="grid grid-cols-2 gap-2">
+          {similarStores.map((store, index) => (
+            <Link
+              key={index}
+              href={`/store?name=${encodeURIComponent(store)}`}
+              className="text-blue-500 hover:text-blue-700 transition-colors text-xs sm:text-sm p-1.5 sm:p-2 hover:bg-blue-50 rounded-lg block truncate"
+            >
+              {store}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Main Content - Full width on mobile, 2/3 on desktop */}
+    <div className="lg:w-2/3 space-y-4 sm:space-y-6">
+      {/* Header Card */}
+      <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+          {storeName.toUpperCase()} COUPON CODE & DISCOUNTS - NOVEMBER 2025
+        </h1>
+        <p className="text-gray-600 text-sm sm:text-base mb-4">
+          {filteredCoupons.length} {storeName} Coupons And Promotional Codes
+          Available For Today
+        </p>
+        
+        {/* Filter Buttons - Horizontal scroll on mobile */}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex space-x-2 overflow-x-auto pb-2 lg:pb-0">
+            <button
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${
+                activeTab === "all"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+              onClick={() => setActiveTab("all")}
+            >
+              All ({coupons.length})
             </button>
-            <button className="px-3 py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm">
-              Didn't work
+            <button
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${
+                activeTab === "coupon"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+              onClick={() => setActiveTab("coupon")}
+            >
+              Coupon ({coupons.filter((c) => c.type === "code").length})
+            </button>
+            <button
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${
+                activeTab === "deals"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+              onClick={() => setActiveTab("deals")}
+            >
+              Deals ({coupons.filter((c) => c.type === "deal").length})
+            </button>
+            <button
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${
+                activeTab === "cashback"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
+              onClick={() => setActiveTab("cashback")}
+            >
+              Cashback ({coupons.filter((c) => c.type === "cashback").length})
+            </button>
+          </div>
+          
+          {/* Rating */}
+          <div className="flex items-center justify-between lg:justify-end gap-4 mt-2 lg:mt-0">
+            <div className="flex items-center space-x-2 text-yellow-500">
+              <span className="text-3xl sm:text-4xl">★</span>
+              <div className="flex flex-col -space-y-1">
+                <span className="text-lg sm:text-xl font-semibold text-black">
+                  {storeRating} / 5
+                </span>
+                <span className="text-gray-600 text-xs sm:text-sm">16 Votes</span>
+              </div>
+            </div>
+            <button className="text-blue-600 text-sm sm:text-lg hover:underline">
+              Rate This
             </button>
           </div>
         </div>
-
-        <div className="rounded-xl p-3">
-          <p className="text-gray-500 text-xs mb-2 text-center">
-            Reminder
-          </p>
-          <button className="w-full px-3 py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm">
-            Save this store
-          </button>
-        </div>
       </div>
 
-      {/* Share */}
-      <div className="mt-6">
-        <p className="text-gray-500 text-xs mb-3 text-center">
-          Share with a friend
-        </p>
-
-        <div className="flex justify-center gap-2 flex-wrap">
-          <button
-            onClick={() => handleShare("facebook")}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition text-sm"
+      {/* Coupons List */}
+      <div className="space-y-4">
+        {filteredCoupons.map((coupon) => (
+          <div
+            key={coupon.id}
+            className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6"
           >
-            <FaFacebook size={14} /> Facebook
-          </button>
+            <div className="flex flex-col lg:flex-row lg:items-start justify-between mb-3 gap-3">
+              <div className="flex items-start space-x-3">
+                <span
+                  className={`${
+                    coupon.discount === "COUPON"
+                      ? "bg-purple-500"
+                      : coupon.type === "cashback"
+                        ? "bg-yellow-500"
+                        : "bg-red-500"
+                  } text-white px-2 sm:px-3 py-1 rounded-full font-bold text-xs sm:text-sm whitespace-nowrap`}
+                >
+                  {coupon.discount}
+                </span>
+                <p className="text-gray-700 text-sm sm:text-base font-medium">
+                  {coupon.description}
+                </p>
+              </div>
+            </div>
 
-          <button
-            onClick={() => handleShare("twitter")}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-sm"
-          >
-            <FaTwitter size={14} /> Twitter
-          </button>
+            <button
+              onClick={() => toggleCoupon(coupon.id)}
+              className="text-blue-500 hover:text-blue-700 text-xs sm:text-sm font-medium mb-3 transition-colors"
+            >
+              {expandedCoupon === coupon.id ? "Hide" : "Show"} Coupon Details
+            </button>
 
-          <button
-            onClick={() => handleShare("whatsapp")}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg border text-green-600 hover:bg-green-50 transition text-sm"
-          >
-            <FaWhatsapp size={14} /> WhatsApp
-          </button>
+            {expandedCoupon === coupon.id && (
+              <div className="bg-blue-50 rounded-lg p-3 sm:p-4 mb-3 animate-fade-in">
+                <p className="text-gray-700 mb-2 font-semibold text-sm sm:text-base">
+                  Terms & Conditions:
+                </p>
+                <ul className="list-disc list-inside text-xs sm:text-sm text-gray-600 space-y-1">
+                  <li>Valid for new customers only</li>
+                  <li>Minimum purchase of $50 required</li>
+                  <li>Cannot be combined with other offers</li>
+                  <li>Valid until December 31, 2025</li>
+                </ul>
+              </div>
+            )}
+
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between pt-3 border-t border-gray-200 gap-3">
+              <div className="flex items-center flex-wrap gap-2">
+                {coupon.verified && (
+                  <span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium flex items-center">
+                    ✓ Verified Code
+                  </span>
+                )}
+                <span className="bg-green-100 text-green-700 rounded-sm px-2 py-1 text-xs">
+                  ✓ {coupon.viewed} View
+                </span>
+                <span className="text-gray-500 text-xs sm:text-sm">
+                  {coupon.used} used
+                </span>
+                <span className="text-gray-500 text-xs sm:text-sm">
+                  • {coupon.time}
+                </span>
+              </div>
+              <button
+                onClick={() => handlePopup(coupon)}
+                className={`px-4 sm:px-6 py-2 rounded-lg font-medium text-sm sm:text-base transition-colors whitespace-nowrap ${
+                  coupon.type === "code"
+                    ? "bg-blue-500 hover:bg-blue-600 text-white"
+                    : coupon.type === "cashback"
+                      ? "bg-yellow-500 hover:bg-yellow-600 text-white"
+                      : "bg-green-500 hover:bg-green-600 text-white"
+                }`}
+              >
+                {coupon.type === "code"
+                  ? "Show Code"
+                  : coupon.type === "cashback"
+                    ? "Get Cashback"
+                    : "Activate Deal"}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* About Section */}
+      <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6">
+        <h1 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-4 sm:mb-6">
+          About {storeName}
+        </h1>
+        <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
+          <div className="lg:w-1/3 bg-blue-100 p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-inner flex items-center justify-center w-full">
+            <div className="w-full h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-blue-200 to-blue-300 rounded-lg flex items-center justify-center">
+              <span className="text-blue-600 font-semibold text-sm sm:text-base">
+                Store Image
+              </span>
+            </div>
+          </div>
+          <div className="lg:w-2/3">
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
+              Whether you are a recreational boat operator or professional,
+              many countries and states have made it mandatory to have a boat
+              license and insurance to ride legally...
+            </p>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              {storeName} is a delegated provider of boat courses and
+              boating licenses...
+            </p>
+          </div>
         </div>
 
-        <div className="flex justify-center mt-3">
-          <button
-            onClick={() => handleShare("general")}
-            className="flex items-center gap-1 px-3 py-1 text-xs text-gray-600 hover:text-gray-800 transition"
-          >
-            <FaShareAlt size={12} /> Share via...
-          </button>
+        <h2 className="font-bold text-lg sm:text-xl text-gray-800 mb-3 sm:mb-4">
+          Why is it necessary to take the Boater safety course?
+        </h2>
+        <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+          Millions of people enjoy riverside, ocean, and lake boating for
+          recreational reasons...
+        </p>
+        <p className="text-gray-700 text-sm sm:text-base leading-relaxed mt-3 sm:mt-4">
+          If you are a beginner, a boating certificate or education course
+          is a great first step...
+        </p>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="bg-white/80 backdrop-blur-sm shadow-xl rounded-xl sm:rounded-2xl border border-white/20 p-4 sm:p-6">
+        <h1 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-4 sm:mb-6">
+          Frequently Asked Questions
+        </h1>
+        <div className="space-y-3 sm:space-y-4">
+          {faqData.map((faq, index) => (
+            <div
+              key={index}
+              className="border border-gray-200 rounded-lg sm:rounded-xl overflow-hidden"
+            >
+              <button
+                className="w-full px-3 sm:px-4 py-3 sm:py-4 text-left font-semibold text-gray-800 text-sm sm:text-base hover:bg-gray-50 transition-colors flex justify-between items-center"
+                onClick={() => toggleFaq(index)}
+              >
+                <span className="pr-2">{faq.question}</span>
+                <span
+                  className={`transform transition-transform flex-shrink-0 ${expandedFaq === index ? "rotate-180" : ""}`}
+                >
+                  ▼
+                </span>
+              </button>
+              {expandedFaq === index && (
+                <div className="px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 text-gray-700 text-sm sm:text-base animate-fade-in">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </div>
-)}
 
-      <style jsx global>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.3s ease-out;
-        }
-      `}</style>
+  {/* Popup Modal - Responsive */}
+  {popup && selectedCoupon && selectedCoupon.type === "code" && (
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50 p-4"
+      onClick={() => setPopup(false)}
+    >
+      <div
+        className="relative bg-white rounded-xl sm:rounded-2xl shadow-lg w-full max-w-[90%] sm:max-w-lg md:max-w-xl max-h-[90vh] overflow-y-auto p-4 sm:p-5"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={() => setPopup(false)}
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 transition text-lg sm:text-xl p-1.5 rounded-full hover:bg-gray-100 z-10"
+          aria-label="Close"
+        >
+          <MdClose />
+        </button>
+
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-4 text-center sm:text-left">
+          <Image
+            src={logo}
+            alt="Store Logo"
+            width={40}
+            height={40}
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
+          />
+          <div>
+            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900">
+              {storeName}
+            </h2>
+            <p className="text-gray-500 text-xs sm:text-sm">
+              Code for: {selectedCoupon.title}
+            </p>
+          </div>
+        </div>
+
+        {/* Verified */}
+        <div className="flex justify-center sm:justify-start items-center text-gray-500 text-xs mb-4">
+          <span className="flex items-center gap-1">
+            <span className="text-blue-500">✓</span>
+            Verified {selectedCoupon.date}
+          </span>
+        </div>
+
+        {/* Coupon Box */}
+        <div className="bg-gradient-to-b from-blue-50 to-blue-100 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-blue-200 shadow-inner">
+          <p className="text-center text-gray-600 text-xs mb-2">
+            Use this code at checkout
+          </p>
+
+          <div className="bg-white shadow-sm rounded-lg p-3 text-center relative">
+            <div className="text-base sm:text-lg md:text-xl tracking-widest font-semibold text-gray-800 break-all">
+              {selectedCoupon.code}
+            </div>
+
+            <button
+              onClick={() => copyToClipboard(selectedCoupon.code)}
+              className="absolute top-2 right-2 text-gray-400 hover:text-blue-500 transition-colors text-xs sm:text-sm"
+              aria-label="Copy code"
+            >
+              <FaCopy />
+            </button>
+
+            {copied && (
+              <div className="absolute top-2 right-8 bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs">
+                Copied!
+              </div>
+            )}
+          </div>
+
+          <div className="text-center mt-3">
+            <a
+              href={selectedCoupon.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-xs sm:text-sm hover:underline"
+            >
+              Open Store →
+            </a>
+          </div>
+        </div>
+
+        {/* Feedback & Reminder */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-4 sm:mt-6">
+          <div className="rounded-lg sm:rounded-xl p-2 sm:p-3">
+            <p className="text-gray-500 text-xs mb-2 text-center">
+              Did it work?
+            </p>
+            <div className="flex justify-center gap-2">
+              <button className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-green-100 text-green-700 hover:bg-green-200 transition text-xs sm:text-sm">
+                Worked ✓
+              </button>
+              <button className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-xs sm:text-sm">
+                Didn't work
+              </button>
+            </div>
+          </div>
+
+          <div className="rounded-lg sm:rounded-xl p-2 sm:p-3">
+            <p className="text-gray-500 text-xs mb-2 text-center">
+              Reminder
+            </p>
+            <button className="w-full px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-xs sm:text-sm">
+              Save this store
+            </button>
+          </div>
+        </div>
+
+        {/* Share */}
+        <div className="mt-4 sm:mt-6">
+          <p className="text-gray-500 text-xs mb-2 sm:mb-3 text-center">
+            Share with a friend
+          </p>
+
+          <div className="flex justify-center gap-2 flex-wrap">
+            <button
+              onClick={() => handleShare("facebook")}
+              className="flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition text-xs sm:text-sm"
+            >
+              <FaFacebook size={12} className="sm:w-[14px] sm:h-[14px]" /> Facebook
+            </button>
+
+            <button
+              onClick={() => handleShare("twitter")}
+              className="flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-gray-700 hover:bg-gray-100 transition text-xs sm:text-sm"
+            >
+              <FaTwitter size={12} className="sm:w-[14px] sm:h-[14px]" /> Twitter
+            </button>
+
+            <button
+              onClick={() => handleShare("whatsapp")}
+              className="flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border text-green-600 hover:bg-green-50 transition text-xs sm:text-sm"
+            >
+              <FaWhatsapp size={12} className="sm:w-[14px] sm:h-[14px]" /> WhatsApp
+            </button>
+          </div>
+
+          <div className="flex justify-center mt-2 sm:mt-3">
+            <button
+              onClick={() => handleShare("general")}
+              className="flex items-center gap-1 px-2 sm:px-3 py-1 text-xs text-gray-600 hover:text-gray-800 transition"
+            >
+              <FaShareAlt size={10} className="sm:w-[12px] sm:h-[12px]" /> Share via...
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+  )}
+
+  <style jsx global>{`
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .overflow-x-auto::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .overflow-x-auto {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  `}</style>
+</div>
   );
 };
 
