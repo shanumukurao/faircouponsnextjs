@@ -193,7 +193,6 @@ const collection = [
 ];
 
 
-
   return (
     <>
       <Helmet>
@@ -433,7 +432,7 @@ const collection = [
             </div>
           </section>
 
-  <section className="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 py-6 px-4 sm:py-8 sm:px-6 lg:py-10 lg:px-8 rounded-2xl shadow-2xl my-4 max-w-5xl mx-auto border border-white/10">
+  <section className="container relative overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 py-6 px-4 sm:py-8 sm:px-6 lg:py-10 lg:px-8 rounded-2xl shadow-2xl my-4 max-w-7xl mx-auto border border-white/10">
       {/* Animated background particles */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 left-1/4 w-32 h-32 bg-white rounded-full blur-3xl animate-pulse"></div>
@@ -535,7 +534,7 @@ const collection = [
     </section>
 
 {/* collections */}
-     <section className="max-w-5xl mx-auto w-full py-16 bg-gray-50">
+     <section className="container max-w-7xl mx-auto w-full py-16 bg-gray-50">
   <div className="px-6 slideFromBottom">
 
     {/* Main Heading */}
@@ -666,8 +665,8 @@ const collection = [
           {/* banners */}
       <section
   onClick={BannerOffers}
-  className="
-    max-w-5xl
+  className="container
+    max-w-7xl
     mx-4 sm:mx-6 md:mx-8 lg:mx-auto
     my-6 sm:my-8 md:my-10
     rounded-2xl lg:rounded-3xl
@@ -771,8 +770,8 @@ const collection = [
 
 
           {/* Popular Stores */}
-          <section className="max-w-5xl py-8 sm:py-12 md:py-16 bg-linear-to-br from-violet-50 via-pink-50 to-yellow-50 rounded-2xl md:rounded-3xl shadow-lg md:shadow-2xl mx-4 sm:mx-6 md:mx-8 lg:mx-28">
-    <div className="container mx-auto px-4 sm:px-6 md:px-6">
+          <section className="w-full bg-gradient-to-br from-violet-50 via-pink-50 to-yellow-50">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 sm:mb-10 md:mb-14">
             <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold md:font-extrabold text-gray-900 tracking-tight flex items-center gap-2 sm:gap-3 mb-4 sm:mb-0">
@@ -895,9 +894,9 @@ const collection = [
 </section>
 
           {/* cashback */}
-         <section className="max-w-5xl py-8 md:py-12 lg:py-16 bg-linear-to-br from-blue-700 via-purple-600-50 to-blue-600 rounded-2xl md:rounded-3xl shadow-lg md:shadow-2xl mx-4 sm:mx-6 md:mx-28 lg:mt-10 mt-6">
-    {/* Background decorative blur elements */}
-    <div className="relative container mx-auto px-4 sm:px-6 md:px-6">
+<section className="w-full bg-linear-to-br from-blue-700 via-purple-600-50 to-blue-600 py-8 md:py-12 lg:py-16">
+    {/* Main Container */}
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Heading Section */}
         <div className="text-center mb-10 md:mb-14">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold md:font-extrabold text-white drop-shadow-md tracking-tight md:tracking-wide">
@@ -968,77 +967,76 @@ const collection = [
 </section>
 
           {/* subscribe */}
-          <section className="relative 
-  bg-gradient-to-br from-[#ffffff] via-[#f5f7fa] to-[#e6ebff]
-  py-24 px-6 md:px-16
-  rounded-3xl
-  mx-4 md:mx-10 lg:mx-28
-  mt-10 mb-8
-  overflow-hidden
-  shadow-xl">
+<section className="relative w-full bg-gradient-to-br from-[#ffffff] via-[#f5f7fa] to-[#e6ebff] py-16 md:py-24 overflow-hidden">
+    {/* Main Container */}
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Content Card with Rounded Corners */}
+        <div className="relative rounded-3xl shadow-xl overflow-hidden">
             {/* Floating Background Glow Elements */}
             <div className="absolute -top-20 -left-24 w-80 h-80 bg-blue-300/40 blur-[120px] rounded-full animate-pulse"></div>
             <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-300/40 blur-[150px] rounded-full animate-pulse"></div>
 
             {/* Content */}
-            <div className="relative z-10 container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
-              {/* Right Side: Image / Illustration */}
-              <div className="lg:w-1/2 flex justify-center relative">
-                <div className="relative bg-white border border-gray-100 rounded-3xl p-10 shadow-2xl backdrop-blur-lg hover:scale-105 transition-transform duration-500">
-                  <Image
-                    src={coupon}
-                    alt="Exclusive Deals"
-                    className="w-96 h-96 object-contain drop-shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
-                  />
-                  {/* Floating Offer Badge */}
-                  <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold px-5 py-2 rounded-full text-sm shadow-lg rotate-12">
-                    🔥 Save 70%
-                  </div>
-                </div>
-              </div>
-
-              {/* Left Side: Text Content */}
-              <div className="lg:w-1/2 text-center lg:text-left">
-                <h2 className="text-4xl md:text-6xl font-extrabold leading-snug mb-6 text-gray-900">
-                  Unlock{" "}
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400">
-                    Smarter Savings
-                  </span>{" "}
-                  with Every Purchase!
-                </h2>
-
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  Discover verified coupons, exclusive cashback rewards, and
-                  daily discounts from 30,000+ trusted brands. Join millions of
-                  smart shoppers saving big every day.
-                </p>
-
-                {/* Email Input + Button */}
-                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="w-full sm:w-auto flex-1 px-5 py-3.5 rounded-xl text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300"
-                  />
-                  <button className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-indigo-400/40 transition">
-                    Get Started
-                  </button>
+            <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-16 p-6 md:p-16">
+                {/* Right Side: Image / Illustration */}
+                <div className="lg:w-1/2 flex justify-center relative">
+                    <div className="relative bg-white border border-gray-100 rounded-3xl p-10 shadow-2xl backdrop-blur-lg hover:scale-105 transition-transform duration-500">
+                        <Image
+                            src={coupon}
+                            alt="Exclusive Deals"
+                            className="w-96 h-96 object-contain drop-shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
+                        />
+                        {/* Floating Offer Badge */}
+                        <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-bold px-5 py-2 rounded-full text-sm shadow-lg rotate-12">
+                            🔥 Save 70%
+                        </div>
+                    </div>
                 </div>
 
-                {/* Trust Line */}
-                <div className="flex items-center justify-center lg:justify-start gap-3 mt-8">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/747/747376.png"
-                    alt="Verified"
-                    className="w-6 h-6"
-                  />
-                  <p className="text-sm text-gray-500">
-                    Trusted by 2M+ happy users • 100% secure and private
-                  </p>
+                {/* Left Side: Text Content */}
+                <div className="lg:w-1/2 text-center lg:text-left">
+                    <h2 className="text-4xl md:text-6xl font-extrabold leading-snug mb-6 text-gray-900">
+                        Unlock{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400">
+                            Smarter Savings
+                        </span>{" "}
+                        with Every Purchase!
+                    </h2>
+
+                    <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                        Discover verified coupons, exclusive cashback rewards, and
+                        daily discounts from 30,000+ trusted brands. Join millions of
+                        smart shoppers saving big every day.
+                    </p>
+
+                    {/* Email Input + Button */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <input
+                            type="email"
+                            placeholder="Enter your email address"
+                            className="w-full sm:w-auto flex-1 px-5 py-3.5 rounded-xl text-gray-900 bg-white border border-gray-300 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300"
+                        />
+                        <button className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-indigo-400/40 transition whitespace-nowrap">
+                            Get Started
+                        </button>
+                    </div>
+
+                    {/* Trust Line */}
+                    <div className="flex items-center justify-center lg:justify-start gap-3 mt-8">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                            alt="Verified"
+                            className="w-6 h-6"
+                        />
+                        <p className="text-sm text-gray-500">
+                            Trusted by 2M+ happy users • 100% secure and private
+                        </p>
+                    </div>
                 </div>
-              </div>
             </div>
-          </section>
+        </div>
+    </div>
+</section>
 
           {/* questions */}
             <FaqSection/>

@@ -270,7 +270,7 @@ const CategoriesStores = () => {
 
   return (
     <div className="py-4 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-28 bg-gradient-to-br from-blue-50 to-indigo-100">
-  <nav className="flex items-center gap-2 text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6 p-4 sm:p-6 max-w-7xl mx-auto">
+  <nav className="flex items-center gap-2 text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6 p-4 sm:p-6 max-w-7xl container mx-auto">
     <span
       className="cursor-pointer hover:text-black transition truncate"
       onClick={() => router.push("/")}

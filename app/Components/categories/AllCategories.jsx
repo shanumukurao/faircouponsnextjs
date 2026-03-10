@@ -57,7 +57,7 @@ const AllCategories = () => {
   return (
     <section className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-6 sm:py-8 lg:py-12 px-4 sm:px-6 lg:px-8">
       {/* Header Navigation */}
-      <nav className="flex items-center gap-2 text-gray-600 text-xs sm:text-sm mb-6 sm:mb-8 max-w-5xl mx-auto">
+      <nav className="flex items-center gap-2 text-gray-600 text-xs sm:text-sm mb-6 sm:mb-8 max-w-7xl mx-auto">
         <Link 
           href="/" 
           className="hover:text-blue-600 transition-colors duration-200 px-2 py-1 rounded-md hover:bg-blue-50"
@@ -71,7 +71,7 @@ const AllCategories = () => {
       </nav>
 
       {/* Hero Banner */}
-      <div className="max-w-5xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+      <div className="max-w-7xl mx-auto mb-8 sm:mb-10 lg:mb-12">
         <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 p-6 sm:p-8 lg:p-12 shadow-2xl">
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-32 sm:w-48 lg:w-64 h-32 sm:h-48 lg:h-64 bg-blue-500 rounded-full filter blur-3xl opacity-20 transform translate-x-16 -translate-y-16"></div>
@@ -104,7 +104,7 @@ const AllCategories = () => {
       </div>
 
       {/* Category Grid */}
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Grid Header */}
         <div className="flex items-center justify-between mb-4 sm:mb-6 px-2">
           <h2 className="text-gray-800 text-lg sm:text-xl lg:text-2xl font-semibold">

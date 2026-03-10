@@ -50,7 +50,7 @@ const Stores = () => {
   };
 
   return (
-   <div className="px-3 sm:px-4 md:px-6 max-w-5xl mx-auto">
+   <div className="px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
 
   {/* Title */}
   <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">

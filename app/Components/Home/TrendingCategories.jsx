@@ -226,7 +226,7 @@ const TrendingCategories = () => {
 
   return (
     <>
-      <div className="max-w-5xl mx-auto px-4 py-8 bg-linear-to-br from-gray-50 via-white to-blue-50 min-h-screen">
+      <div className="container max-w-7xl mx-auto px-4 py-8 bg-linear-to-br from-gray-50 via-white to-blue-50 min-h-screen">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Side - Categories */}
           <div className="lg:w-1/4 bg-white/80 backdrop-blur-lg rounded-2xl p-6 border border-gray-200 transition-all duration-500  hover:shadow-2xl">

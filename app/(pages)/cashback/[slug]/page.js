@@ -170,7 +170,7 @@ const cashback = searchParams.get("cashback") || "Flat 2.5% Cashback";
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
       <div className="bg-white shadow-sm">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
             <span
               className="hover:text-blue-600 cursor-pointer transition-colors"
@@ -194,7 +194,7 @@ const cashback = searchParams.get("cashback") || "Flat 2.5% Cashback";
       </div>
 
       {/* Main Layout */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Sidebar */}
           <div className="lg:w-1/4 space-y-6">
@@ -584,7 +584,7 @@ const cashback = searchParams.get("cashback") || "Flat 2.5% Cashback";
       </div>
 
       {/* About Section */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 text-start tracking-tight">
           About <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
             {name || 'the Store'}

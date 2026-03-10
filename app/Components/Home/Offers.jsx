@@ -40,7 +40,7 @@ const Offers = () => {
       {/* TOP HEADER SECTION */}
       <div className="min-h-screen">
         <div className="bg-gradient-to-b from-[#6C63FF] to-[#3D3BFF] py-10 px-5 lg:px-14">
-  <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12 shadow-xl">
+  <div className="container max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 shadow-xl">
 
     {/* LEFT - DETAILS */}
     <div className="w-full lg:w-1/2 text-white">
@@ -133,7 +133,7 @@ const Offers = () => {
 </div>
 
         {/* MAIN CONTENT BELOW */}
-        <div className="w-full flex flex-col lg:flex-row gap-8 p-6 max-w-5xl mx-auto gap-2">
+        <div className="w-full flex flex-col lg:flex-row gap-8 p-6 max-w-7xl mx-auto gap-2">
           {/* LEFT COLUMN */}
           <div className="w-full lg:w-3/4 flex flex-col gap-8">
             {/* 1 LIVE OFFERS CARD */}
@@ -261,7 +261,7 @@ const Offers = () => {
         </div>
 
         {/* CATEGORIES GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4 max-w-7xl mx-auto">
           {categories.map((item, index) => (
             <div
               key={index}

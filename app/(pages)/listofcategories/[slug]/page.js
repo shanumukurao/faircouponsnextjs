@@ -51,7 +51,7 @@ const page = () => {
 
 
   return (
-    <section className="p-6 max-w-5xl mx-auto">
+    <section className="p-6 max-w-7xl mx-auto">
   {/* Breadcrumb */}
   <nav className="flex flex-wrap items-center gap-2 text-gray-600 mb-6 text-sm">
     <Link href="/" className="hover:text-blue-600 transition">Home</Link>
